@@ -928,4 +928,10 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'H' || event.key === 'h') {
+        document.getElementById('statsPanel').classList.toggle("hidden");
+        document.getElementById('detailsPanel').classList.toggle("hidden");
+        document.getElementById('objectivesPanel').classList.toggle("hidden");
+    }
+});
