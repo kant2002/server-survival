@@ -10,8 +10,7 @@ scene.fog = new THREE.FogExp2(CONFIG.colors.bg, 0.008);
 const aspect = window.innerWidth / window.innerHeight;
 const d = 50;
 const camera = new THREE.OrthographicCamera(-d * aspect, d * aspect, d, -d, 1, 1000);
-camera.position.set(40, 40, 40);
-camera.lookAt(scene.position);
+resetCamera()
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -494,4 +493,13 @@ document.addEventListener('keydown', (event) => {
         document.getElementById('detailsPanel').classList.toggle("hidden");
         document.getElementById('objectivesPanel').classList.toggle("hidden");
     }
+    if (event.key === 'R' || event.key === 'r') {
+        resetCamera();
+    }
 });
+
+function resetCamera() {
+    camera.position.set(40, 40, 40);
+    scene.position.set(0, 0, 0);
+    camera.lookAt(scene.position);
+}
